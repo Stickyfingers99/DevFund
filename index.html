@@ -29,77 +29,111 @@
           box-shadow: 0 6px 12px rgba(73, 73, 73, 0.08), 0 -6px 12px rgba(73, 73, 73, 0.08), 0 6px 12px rgba(73, 73, 73, 0.08), 0 -6px 12px rgba(73, 73, 73, 0.08);
           transform-origin: center;
         }
+        .translate-x-0 {
+        transform: translateX(0);
+        }
+        .translate-x-full {
+        transform: translateX(100%);
+        }
     </style>
 </head>
 
 <body class="overflow-x-hidden">
     <div class="bg-black text-gray-500">
-          Landing Page 
+        Landing Page 
     </div>
-        <header class="flex items-center justify-between p-1.5 md:p-2.5">
-            <h1 class="pl-2 lg:pl-32 text-black text-3xl"><span class="text-customGreen text-4xl">Dev</span>Fund</h1> 
+    <header class="flex p-1.5 md:p-2.5">
+        <h1 class="pr-14 md:pr-0 pl-2 lg:pl-32  text-black text-3xl"><span class="text-customGreen text-4xl">Dev</span>Fund</h1>
+        
+            <div class="md:hidden scroll-mr-28 md:scroll-mr-0 flex-1 flex justify-center items-center mb-0 md:mb-0">
+                <button class=" bg-customGreen text-white p-1 rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">
+                    Have an idea?
+                </button>
+            </div>
 
-             <nav class="flex items-center justify-center flex-1">
-              <ul class="hidden md:flex items-center mix-blend-normal md:space-x-8">
-                <li>
-                    <a href="#" class="text-customGreen pl-20 hover:underline hover:text-purple-800">Home</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline hover:text-purple-800">About Us</a>
-                </li>
-                <li>
-                    <a href="#" class="hover:underline hover:text-purple-800">Services</a>
-                </li>
-                <li>
-                    <a href="#" class="rounded-md hover:underline hover:text-purple-800">Get In Touch</a>
-                </li>
-             </ul>
+        <nav class="flex items-center justify-center flex-1">
+            <ul class="hidden md:flex items-center mix-blend-normal md:space-x-8">
+                <li><a href="#" class="text-customGreen pl-20 hover:underline hover:text-purple-800">Home</a></li>
+                <li><a href="#" class="hover:underline hover:text-purple-800">About Us</a></li>
+                <li><a href="#" class="hover:underline hover:text-purple-800">Services</a></li>
+                <li><a href="#" class="rounded-md hover:underline hover:text-purple-800">Get In Touch</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hidden md:block mr-2 lg:mr-32 bg-customGreen text-white p-2 rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300"> 
+            <button>Have an idea?</button>
+        </div>
 
-             <div class="flex md:hidden justify-center w-full pr-4">
-                <button id="nav-toggle" class="px-3 py-2 border rounded text-black border-gray-400 hover:text-customGreen hover:border-customGreen">
-                  <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <div class="flex md:hidden items-center space-x-2">
+            <button id="nav-toggle" class="px-3 py-2 border rounded text-black border-gray-400 hover:text-customGreen hover:border-customGreen">
+                <svg id="menu-icon" class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <title>Menu</title>
                     <path d="M0 3h20v2H0V3zm0 5h20v2H0V8zm0 5h20v2H0v-2z"/>
-                  </svg>
-                </button>
-              </div>
-            </nav>       
+                </svg>
+                <svg id="close-icon" class="hidden fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Close</title>
+                    <path d="M10 8.586l4.95-4.95 1.414 1.414L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.414L8.586 10 3.636 5.05 5.05 3.636 10 8.586z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    
+    <nav class="md:hidden fixed right-0 top-0 h-full bg-white shadow-lg p-4 z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="nav-content">
+        <!-- Close icon inside the nav-content for the overlay -->
+        <button id="nav-close" class="absolute top-0 right-0 text-white bg-customGreen p-2 rounded-full shadow-lg">
+            <svg class="fill-current h-4 w-4 " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Close</title>
+                <path d="M10 8.586l4.95-4.95 1.414 1.414L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.414L8.586 10 3.636 5.05 5.05 3.636 10 8.586z"/>
+            </svg>
+        </button>
 
-            <div class="mr-2 lg:mr-32 bg-customGreen text-white p-2 rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300"> 
-                <button>Have an idea?</button>
-            </div>         
-        </header>
-        
-        <nav class="md:hidden" id="nav-content" style="display: none;">
-            <ul class="flex flex-col items-center space-y-4 mt-2">
-              <li>
-                <a href="#" class="text-customGreen hover:underline hover:text-purple-800">Home</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline hover:text-purple-800">About Us</a>
-              </li>
-              <li>
-                <a href="#" class="hover:underline hover:text-purple-800">Services</a>
-              </li>
-            </ul>
-          </nav>
-        
-          <script>
-            document.getElementById('nav-toggle').addEventListener('click', function() {
-              var navContent = document.getElementById('nav-content');
-              if (navContent.style.display === "none" || navContent.style.display === "") {
-                navContent.style.display = "block";
+        <ul class="flex flex-col items-center space-y-4 mt-2">
+            <li><a href="#" class="text-customGreen hover:underline hover:text-purple-800">Home</a></li>
+            <li><a href="#" class="hover:underline hover:text-purple-800">About Us</a></li>
+            <li><a href="#" class="hover:underline hover:text-purple-800">Services</a></li>
+            <li><a href="#" class="hover:underline hover:text-purple-800">Get In Touch</a></li>
+        </ul>
+    </nav>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var navToggle = document.getElementById('nav-toggle');
+          var navContent = document.getElementById('nav-content');
+          var menuIcon = document.getElementById('menu-icon');
+          var closeIcon = document.getElementById('close-icon');
+          var navClose = document.getElementById('nav-close');
+
+          // Toggle menu visibility on hamburger icon click
+          navToggle.addEventListener('click', function() {
+              if (navContent.classList.contains('translate-x-full')) {
+                  navContent.classList.remove('translate-x-full');
+                  navContent.classList.add('translate-x-0');
+                  menuIcon.classList.add('hidden');
+                  closeIcon.classList.remove('hidden');
               } else {
-                navContent.style.display = "none";
+                  navContent.classList.remove('translate-x-0');
+                  navContent.classList.add('translate-x-full');
+                  menuIcon.classList.remove('hidden');
+                  closeIcon.classList.add('hidden');
               }
-            });
-          </script> 
+          });
 
-    <div class="flex flex-col lg:flex-row bg-black">
+          // Close menu on close icon click
+          navClose.addEventListener('click', function() {
+              navContent.classList.remove('translate-x-0');
+              navContent.classList.add('translate-x-full');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+          });
+      });
+    </script>
+</body>
+    
+   <div class="flex flex-col lg:flex-row bg-black">
         <div class="relative w-full py-12 md:py-72 flex items-center">
              <img src="public/images/Ellipse 5.png" class="absolute inset-0 ">
             <div>
-                <h1 class="pl-3 md:pl-32 font-bold text-5xl md:text-5xl lg:text-8xl text-white">Empowering You <br>
+                <h1 class="pl-3 md:pl-32 pt-14 font-bold text-5xl md:text-5xl lg:text-8xl text-white">Empowering You <br>
                     <span>To</span> <span class="text-customGreen">Investment</span></h1>
                     <p class="text-gray-400 pl-3 md:pl-32 mt-4 md:mt-4">We provide the core technology your startup needs to transform your idea<br>into paradigm- shifting solutions in the shortest possible time…without<br> worries about cost.</p>
                     <button class="ml-3 mt-5 md:ml-32 px-7 py-2 rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300 bg-customGreen">Get Started</button>
@@ -107,7 +141,7 @@
             </div>
             <div  class="pl-0 md:pl-32 relative  w-full flex items-center">
         <img src="public/images/Ellipse 2.png" class="absolute inset-0">
-            <svg width="688" height="469" viewBox="0 0 688 469" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-full pt-24 lg:pt-10 pb-16 md:pr-32">
+            <svg width="688" height="469" viewBox="0 0 688 469" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-full pt-24 lg:pt-10 pb-32 md:pr-32">
         <path d="M372.012 455.855V467.215H413.271C413.32 455.42 422.927 445.838 434.732 445.838C446.537 445.838 456.144 455.42 456.193 467.215H497.452V455.855H477.541C476.522 452.054 475.025 448.457 473.094 445.129L487.176 431.048L470.988 414.86L456.907 428.942C453.579 427.011 449.981 425.513 446.181 424.496V404.585H423.285V424.496C419.484 425.515 415.886 427.012 412.558 428.942L398.476 414.86L382.288 431.048L396.369 445.129C394.437 448.457 392.94 452.054 391.923 455.855H372.012Z" fill="#BEDCE0"/>
         <path d="M21.8702 467.215C21.8702 467.215 26.867 159.483 87.049 157.162C147.231 154.84 109.301 409.967 144.701 409.967C180.1 409.967 181.981 261.676 220.44 261.676C258.9 261.676 241.706 421.121 271.727 421.121C301.748 421.121 288.922 236.289 322.155 236.289C360.564 236.289 346.174 394.694 369.634 394.694C406.232 394.694 381.834 146.019 449.399 146.019C521.657 146.019 494.129 435.813 526.529 435.813C558.929 435.813 547.932 217.653 604.236 217.653C651.157 217.653 656.787 467.216 656.787 467.216" stroke="#BEDCE0" stroke-width="0.8315" stroke-miterlimit="10"/>
         <path d="M52.3742 226.038C52.3742 229.504 49.5631 232.316 46.0962 232.316C42.6294 232.316 39.8182 229.504 39.8182 226.038C39.8182 222.57 42.6294 219.76 46.0962 219.76C49.5631 219.76 52.3742 222.57 52.3742 226.038Z" fill="#4A75C9"/>
@@ -320,12 +354,11 @@
     </div>
     </div>
       
-
     <div class="pt-8 md:pt-40 pb-8 md:pb-16 md:py-44 flex flex-col items-center justify-center text-center">
             <h1 class="font-bold text-3xl md:text-4xl lg:text-8xl text-black"> 
             Changing The Future Of Innovation<br>
             <span class="pt-5 flex items-center justify-center text-customGreen">One Startup At A Time</span></h1>
-            <h4 class="font-product-sans-light text-xl text-[#202532] font-normal pt-8 sm:pb-8 flex items-center justify-center">Because we believe that innovation is the<br>driving force behind progress</h4>
+            <h4 class="font-product-sans-light text-xl text-[#202532] font-normal pt-8 sm:pb-8 flex items-center justify-center">Because we believe that innovation is the driving force behind progress</h4>
     </div>
 
     <div class=" md:grid grid-cols-2 gap-0 px-4 md:px-12 lg:px-44">
@@ -340,8 +373,8 @@
                 </defs>
                 </svg>
           <div class="md:ml-4 leading-normal">
-            <h2 class="text-2xl md:text-4xl pl-5 md:pl-8 md:pr-10 md:pt-48 font-bold">Got a Technology-Driven Venture?<br><br><span class="pt-4">We Can Invest In You</span></h2>
-            <p class="text-lg pl-5 pr-5 md:pl-8 pb-5 pt-7 ">At DevFund, we understand that for startups, big dreams need<br>more than just an idea. They benefit from an agile team of skilled<br>professionals working efficiently and creating value at minimal<br>cost. </p>
+            <h2 class="text-2xl md:text-4xl pl-5 md:pl-8 md:pr-10 pt-0 md:pt-48 font-bold">Got a Technology-Driven Venture?<br><br><span class="pt-4">We Can Invest In You</span></h2>
+            <p class="text-lg pl-5 pr-5 md:pl-8 pb-5 pt-7 ">At DevFund, we understand that for startups, big dreams need more than just an idea. They benefit from an agile team of skilled professionals working efficiently and creating value at minimal cost. </p>
           </div>
         </div>
 
@@ -357,8 +390,8 @@
                 </defs>
                 </svg>
           <div class="ml-3 md:ml-4 leading-normal">
-            <h2 class="text-2xl md:text-4xl pl-5 md:pl-5 pr-10 pt-6 md:pt-44 font-bold">Build the Mother of MVPs</h2>
-            <p class="text-lg pl-5 md:pl-5 pt-7 md:pt-14 pb-5 md:pb-14">For equity, we can finalize outstanding development initiatives,<br> build the MVP or full solution that is guaranteed to solidify your<br> place in the tech terrain and get investors knocking at your door in<br> no time. Read on  </p>
+            <h2 class="text-2xl md:text-4xl pl-5 md:pl-5 pr-10 pt-0 md:pt-44 font-bold">Build the Mother of MVPs</h2>
+            <p class="text-lg pl-5 md:pl-5 pt-7 md:pt-14 pb-5 md:pb-14">For equity, we can finalize outstanding development initiatives, build the MVP or full solution that is guaranteed to solidify your place in the tech terrain and get investors knocking at your door in no time. Read on  </p>
           </div>
         </div>
 
@@ -373,8 +406,8 @@
                 </defs>
                 </svg> 
           <div class="ml-3 md:ml-4 leading-normal">
-            <h2 class="text-2xl md:text-4xl pl-5 md:pl-8 pt-2 md:pt-48 font-bold">A Robust Strategy For Sourcing The <br><br><span class="mt-4">Best Talents</span></h2>
-            <p class="text-lg pl-5 pr-5 md:pl-8 pt-5 pb-5">Successful startups know the importance of having a team that<br> can do the sprints as well as the marathons. We help you source for<br> professionals who’ve got the expertise and are nimble enough to<br> go the long haul with you. Find out how</p>
+            <h2 class="text-2xl md:text-4xl pl-5 md:pl-8 pt-0 md:pt-12 font-bold">A Robust Strategy For Sourcing The <br><br><span class="mt-4">Best Talents</span></h2>
+            <p class="text-lg pl-5 pr-5 md:pl-8 pt-5 pb-5">Successful startups know the importance of having a team that can do the sprints as well as the marathons. We help you source for professionals who’ve got the expertise and are nimble enough to go the long haul with you. Find out how</p>
           </div>
         </div>
 
@@ -389,8 +422,8 @@
                 </defs>
                 </svg>
           <div class="ml-3 md:ml-4 leading-normal">
-            <h2 class="text-2xl md:text-4xl pl-5 md:pl-5 pt-2 md:pt-40 font-bold">Time To Thrive</h2>
-            <p class="text-lg pl-5 md:pl-5 pt-5 pb-8 md:pb-40">Now that you do not have to worry about developing your product,<br> you can focus on making informed decisions, optimizing<br> operations and staying on track while evaluating your KPIs</p>
+            <h2 class="text-2xl md:text-4xl pl-3 md:pl-5 pt-0 md:pt-32 font-bold">Time To Thrive</h2>
+            <p class="text-lg pl-3 md:pl-5 pt-5 pb-8 md:pb-40">Now that you do not have to worry about developing your product, you can focus on making informed decisions, optimizing operations and staying on track while evaluating your KPIs</p>
           </div>
         </div>
 
@@ -405,8 +438,8 @@
                 </defs>
                 </svg>
           <div class="ml-3 md:ml-4 leading normal">
-            <h2 class="text-2xl md:text-4xl pl-5 md:pl-8 pt-2 md:pt-20 font-bold">In it to Scale</h2>
-            <p class="text-lg pl-5 pr-5 md:pl-8 pt-5 pb-10">A partnership with DevFund means we are just as invested in your<br>success as you are. Minimal costs and timely deliverables that bring<br>about awesome products. We are all about that.</p>
+            <h2 class="text-2xl md:text-4xl pl-3 md:pl-8 pt-0 md:pt-20 font-bold">In it to Scale</h2>
+            <p class="text-lg pl-3 pr-5 md:pl-8 pt-5 pb-10">A partnership with DevFund means we are just as invested in your success as you are. Minimal costs and timely deliverables that bring about awesome products. We are all about that.</p>
           </div>
         </div>
 
@@ -421,8 +454,8 @@
                 </defs>
                 </svg>
           <div class="ml-3 md:ml-4 leading-normal">
-            <h2 class="text-2xl md:text-4xl pl-5 md:pl-5 pt-2 md:pt-20 font-bold">Top-tier Leadership</h2>
-            <p class="text-lg pl-5 md:pl-5 pt-5 pb-10">Looking for an interim, on-demand CTO to navigate your startup<br> through the technical challenges required for innovation while you<br> find the perfect market fit? We’ve got you covered</p>
+            <h2 class="text-2xl md:text-4xl pl-3 md:pl-5 pt-2 md:pt-20 font-bold">Top-tier Leadership</h2>
+            <p class="text-lg pl-3 md:pl-5 pt-5 pb-10">Looking for an interim, on-demand CTO to navigate your startup through the technical challenges required for innovation while you find the perfect market fit? We’ve got you covered</p>
           </div>
         </div>
       </div>
@@ -436,23 +469,23 @@
         <div class="bg-gray-100 flex-grow items-center h-auto md:h-o md:relative">
 
         <div class="lg:flex flex-col justify-center lg:absolute md-inset-0 md:h-full"> 
-            <h1 class="font-bold text-4xl md:text-7xl pl-5 md:pl-20">There is <span class="text-customGreen">More</span></h1>
-            <p class="ml-5 md:ml-20 mt-8 font-normal text-xl">At the core of DevFund lies a fervent commitment to empower <br>businesses and enhance their technical competency and <br>capabilities</p>
+            <h1 class="font-bold text-4xl md:text-7xl pt-12 pl-5 md:pl-20">There is <span class="text-customGreen">More</span></h1>
+            <p class="ml-5 md:ml-20 mt-8 font-normal text-xl">At the core of DevFund lies a fervent commitment to empower businesses and enhance their technical competency and capabilities</p>
                 <div class="flex ml-5 md:ml-20 mt-8 items-start">
                     <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 15.5L15 11.5M15 11.5L11 7.5M15 11.5H7M21 11.5C21 17.0228 16.5228 21.5 11 21.5C5.47715 21.5 1 17.0228 1 11.5C1 5.97715 5.47715 1.5 11 1.5C16.5228 1.5 21 5.97715 21 11.5Z" stroke="#89A54D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    <h3 class="pl-2"> Improve your valuation by 10 to 20 times the technological investment<br> value as soon as your MVP is ready.</h3>
+                    <h3 class="pl-2"> Improve your valuation by 10 to 20 times the technological investment value as soon as your MVP is ready.</h3>
                 </div>
 
                 <div class="flex ml-5 md:ml-20 mt-8 items-start">
                     <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 15.5L15 11.5M15 11.5L11 7.5M15 11.5H7M21 11.5C21 17.0228 16.5228 21.5 11 21.5C5.47715 21.5 1 17.0228 1 11.5C1 5.97715 5.47715 1.5 11 1.5C16.5228 1.5 21 5.97715 21 11.5Z" stroke="#89A54D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <h3 class="pl-2">Become more customer-centric. With a reduced burn rate you can now<br> focus on customer acquisition.</h3>
+                        <h3 class="pl-2">Become more customer-centric. With a reduced burn rate you can now focus on customer acquisition.</h3>
                 </div>
 
                 <div class="ml-5 md:ml-20 mt-8"> 
-                    <button class="bg-customGreen text-white py-2 px-10 rounded-sm hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">Learn More</button>
+                    <button class="bg-customGreen text-white py-2 mb-12 px-10 rounded-sm hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">Learn More</button>
                 </div>
         </div>
         </div>
@@ -477,7 +510,7 @@
                         </defs>
                         </svg>
                         
-                    <h1 class="pl-10 font-bold text-2xl md:text-4xl md:pt-3 lg:pt-7">Evaluation<br><span class="font-normal pt-7 text-xl md:text-xl">We assess the complexity of your project, viability, business model<br> innovation, market research and much more to determine how well<br> we can help you succeed. </span></h1>
+                    <h1 class="pl-10 font-bold text-2xl md:text-4xl md:pt-3 lg:pt-7">Evaluation<br><span class="font-normal pt-7 text-xl md:text-xl">We assess the complexity of your project, viability, business model innovation, market research and much more to determine how well we can help you succeed. </span></h1>
                 </div>
 
                 <div class="py-8 row-span-1 flex rounded-6xl transform hover:scale-100 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
@@ -491,7 +524,7 @@
                         </defs>
                         </svg>
                         
-                    <h1 class="pl-10 font-bold text-2xl md:text-4xl pt-7">Commitment Fee<br><span class="font-normal pt-7 text-xl md:text-xl">After a successful evaluation phase, based on risk assessment, you<br> pay a non-refundable commitment fee, typically 10-20% of the<br> development value. As the name implies, to prove your<br> commitment.</span></h1>
+                    <h1 class="pl-10 font-bold text-2xl md:text-4xl pt-7">Commitment Fee<br><span class="font-normal pt-7 text-xl md:text-xl">After a successful evaluation phase, based on risk assessment, you pay a non-refundable commitment fee, typically 10-20% of the development value. As the name implies, to prove your commitment.</span></h1>
                 </div>
 
                 <div class="py-8 row-span-1 flex rounded-6xl transform hover:scale-100 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
@@ -505,7 +538,7 @@
                         </defs>
                         </svg>
                         
-                    <h1 class="pl-10 font-bold text-2xl md:text-4xl pt-7">Equity Share<br><span class="font-normal pt-7 text-xl md:text-xl">In return for the technical investment, we receive equity in your<br> business, aligning our interests with your success.</span></h1>
+                    <h1 class="pl-7 font-bold text-2xl md:text-4xl pt-7">Equity Share<br><span class="font-normal pt-7 text-xl md:text-xl">In return for the technical investment, we receive equity in your business, aligning our interests with your success.</span></h1>
                 </div>
 
                 <div class="py-8 row-span-1 flex rounded-6xl transform hover:scale-100 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
@@ -519,7 +552,7 @@
                         </defs>
                         </svg>
                         
-                    <h1 class="font-bold text-2xl md:text-4xl pt-7 pl-10">Technical Partnership<br><span class="font-normal pt-7 text-xl md:text-xl">We provide you technical guidance and translate your ideas into<br> ROI-positive solutions. As a pivotal aspect of our technical<br> investment, DevFund remains committed to offering ongoing<br> technical guidance to you beyond solution delivery. </span></h1>
+                    <h1 class="font-bold text-2xl md:text-4xl pt-7 pl-10">Technical Partnership<br><span class="font-normal pt-7 text-xl md:text-xl">We provide you technical guidance and translate your ideas into ROI-positive solutions. As a pivotal aspect of our technical investment, DevFund remains committed to offering ongoing technical guidance to you beyond solution delivery. </span></h1>
                 </div>
 
                 <div class="py-8 row-span-1 flex rounded-6xl transform hover:scale-100 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
@@ -533,7 +566,7 @@
                         </defs>
                         </svg>
                         
-                    <h1 class="pl-10 font-bold text-2xl md:text-4xl pt-7">Skilled Hands<br><span class="font-normal pt-7 text-xl md:text-xl">DevFund can build the engineering team required to sustain and<br> expand your solutions post-handover and exclusively cater to your<br> needs until a substantive CTO is onboarded.</span></h1>
+                    <h1 class="pl-10 font-bold text-2xl md:text-4xl pt-7">Skilled Hands<br><span class="font-normal pt-7 text-xl md:text-xl">DevFund can build the engineering team required to sustain and expand your solutions post-handover and exclusively cater to your needs until a substantive CTO is onboarded.</span></h1>
                 </div>
             </div>
         </div>
@@ -553,7 +586,7 @@
                 <rect width="36" height="37" rx="18" fill="#333647"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M27.9804 25.7171C27.9911 25.7696 27.9975 25.8226 27.9994 25.8762L28 25.9102V26.9402C28 28.0778 25.9853 29 23.5 29C21.0396 29 19.0403 28.0961 19.0006 26.9742L19 26.9402V25.9102L19.0006 25.8762C19.0025 25.8228 19.0088 25.7698 19.0195 25.7174C19.2951 25.9308 19.6306 26.1275 20.0194 26.296C20.9268 26.6891 22.1504 26.9402 23.5 26.9402C24.9031 26.9402 26.1698 26.6684 27.0881 26.2481C27.4314 26.091 27.7301 25.911 27.9804 25.7171ZM17 8L26 13.1496L26.0001 16.9501C25.2629 16.7552 24.4101 16.641 23.5 16.641C22.1294 16.641 20.8889 16.9005 19.9737 17.3194C18.7206 17.893 18.0826 18.7703 18.002 19.658L17.9997 19.6849L18.0054 28.023L17 28.5983L8 23.4487V13.1496L17 8ZM27.9804 22.6274C27.9911 22.6798 27.9975 22.7329 27.9994 22.7864L28 22.8205V23.8504C28 24.988 25.9853 25.9102 23.5 25.9102C21.0396 25.9102 19.0403 25.0064 19.0006 23.8845L19 23.8504V22.8205L19.0006 22.7864C19.0025 22.733 19.0088 22.6801 19.0195 22.6277C19.2951 22.841 19.6306 23.0378 20.0194 23.2062C20.9268 23.5994 22.1504 23.8504 23.5 23.8504C24.9031 23.8504 26.1698 23.5787 27.0881 23.1583C27.4314 23.0012 27.7301 22.8213 27.9804 22.6274ZM14 17.6124L14 24.5932L16 25.7376V18.7567L14 17.6124ZM10 15.3238V22.3044L12 23.4488V16.4681L10 15.3238ZM23.5 17.6709C25.9604 17.6709 27.9597 18.5748 27.9994 19.6967L28 19.7308V20.7607C28 21.8983 25.9853 22.8205 23.5 22.8205C21.0396 22.8205 19.0403 21.9166 19.0006 20.7947L19 20.7607V19.7308L19.0067 19.6177C19.1348 18.5327 21.0976 17.6709 23.5 17.6709ZM20.9371 12.5414L15.0506 15.925L17 17.0404L22.9 13.6645L20.9371 12.5414ZM17 10.2887L11.1 13.6645L13.0529 14.782L18.9394 11.3984L17 10.2887Z" fill="white"/>
                 </svg>
-                <h1 class="text-white text-3xl font-bold pt-3 pb-3">Technology is the Venture</h1><span class="text-white pt-3 text-xl font-normal">This simply means your business concept or<br> value proposition revolves around a specific<br> technology or technological innovation. Needed<br> technology should drive your value creation<br> process, market differentiation, and competitive<br> advantage.</span>
+                <h1 class="text-white text-3xl font-bold pt-3 pb-3">Technology is the Venture</h1><span class="text-white pt-3 text-xl font-normal">This simply means your business concept or value proposition revolves around a specific technology or technological innovation. Needed technology should drive your value creation process, market differentiation, and competitive advantage.</span>
                 <div class="absolute right-0 bottom-0">
                     <div class="h-16 w-16 bg-Shapecolor transform -rotate-45 origin-top-right rounded-full"></div>
                 </div>
@@ -564,7 +597,7 @@
                         <rect x="0.333374" y="0.5" width="36" height="36" rx="18" fill="#333647"/>
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M27.1569 21.7306C26.4416 22.2353 25.191 22.9447 23.5746 23.3823C23.3781 22.3141 22.6087 21.4306 21.5322 21.1C20.5769 20.8059 19.604 20.5965 18.6204 20.4576C19.3698 19.8247 19.8875 18.9388 20.0369 17.9247C20.2651 17.9165 20.504 17.9118 20.7769 17.9118C22.5063 17.9212 24.2263 18.1859 25.891 18.6976C26.6475 18.9306 27.1569 19.6118 27.1569 20.3941V21.7306ZM22.451 25.26C21.2616 26.1012 19.011 27.3235 15.9804 27.3235C14.6322 27.3235 12.031 27.0506 9.50984 25.26V23.9188C9.50984 23.1376 10.0204 22.4553 10.7781 22.2224C12.4698 21.7047 14.2193 21.4424 15.9804 21.4424H16.0687C17.804 21.4506 19.5251 21.7141 21.1875 22.2247C21.9428 22.4565 22.451 23.1376 22.451 23.9188V25.26H22.451ZM13.0392 17.3235V16.1471C13.0392 14.5259 14.3581 13.2059 15.9804 13.2059C17.6028 13.2059 18.9216 14.5259 18.9216 16.1471V17.3235C18.9216 18.9459 17.6028 20.2647 15.9804 20.2647C14.3581 20.2647 13.0393 18.9459 13.0393 17.3235H13.0392ZM20.6863 9.67648C21.4699 9.67648 22.2087 9.98354 22.7651 10.54C23.3204 11.0965 23.6275 11.8341 23.6275 12.6177V13.7941C23.6275 15.4165 22.3087 16.7353 20.6863 16.7353C20.4816 16.7353 20.2863 16.7082 20.0981 16.6682V16.1471C20.0981 14.5177 19.1393 13.1188 17.7628 12.4518C17.8498 10.9094 19.1216 9.67648 20.6863 9.67648ZM26.2369 17.5729C25.2851 17.2812 24.3146 17.0706 23.3228 16.9306C24.2204 16.1753 24.804 15.0576 24.804 13.7941V12.6176C24.804 11.52 24.3757 10.4859 23.5969 9.70823C22.8181 8.92941 21.7851 8.5 20.6863 8.5C18.5957 8.5 16.8828 10.0729 16.6216 12.0953C16.411 12.0612 16.2004 12.0294 15.9804 12.0294C13.7098 12.0294 11.8628 13.8776 11.8628 16.147V17.3235C11.8628 18.587 12.4463 19.7047 13.3451 20.4612C12.3628 20.5988 11.3851 20.8059 10.4334 21.0976C9.17808 21.4835 8.33337 22.6176 8.33337 23.9188V25.8529L8.56867 26.0294C11.4357 28.1788 14.4416 28.5 15.9804 28.5C19.5663 28.5 22.164 26.9518 23.3922 26.0294L23.6275 25.853V24.5976C25.7651 24.0706 27.3322 23.0765 28.0981 22.5L28.3334 22.3235V20.3941C28.3334 19.0918 27.4898 17.9576 26.2369 17.5729Z" fill="white" stroke="white" stroke-width="0.0192"/>
                         </svg>                        
-                    <h1 class="text-white text-3xl font-bold pt-3 pb-3">Growth Quotient</h1><span class="text-white text-xl font-normal">Your market value is ours as well. We are<br> looking to work with you if your business has<br> potential for 5-10x growth upon success and<br> during future funding rounds.</span>
+                    <h1 class="text-white text-3xl font-bold pt-3 pb-3">Growth Quotient</h1><span class="text-white text-xl font-normal">Your market value is ours as well. We are looking to work with you if your business has potential for 5-10x growth upon success and during future funding rounds.</span>
                     <div class="absolute right-0 bottom-0">
                         <div class="h-16 w-16 bg-Shapecolor transform -rotate-45 origin-top-right rounded-full"></div>
                       </div>
@@ -575,7 +608,7 @@
                             <rect x="0.666626" y="0.5" width="36" height="37" rx="18" fill="#333647"/>
                             <path d="M10.9999 26.5V24.4167C10.9999 21.8853 13.3084 19.8333 16.1561 19.8333H20.8436C23.6914 19.8333 25.9999 21.8853 25.9999 24.4167V26.5M14.7499 26.5V24M22.2499 26.5V24M17.5624 16.5H14.2811C13.5045 16.5 12.8749 15.9404 12.8749 15.25V14.4167C12.8749 13.306 13.418 12.3082 14.2811 11.6215M24.1249 15.6667V14.4167C24.1249 13.306 23.5817 12.3082 22.7186 11.6215M25.9999 15.25V14M10.9999 15.25V14M22.2499 14.8333C22.2499 16.6743 20.5709 18.1667 18.4999 18.1667C16.4288 18.1667 14.7499 16.6743 14.7499 14.8333C14.7499 12.9924 16.4288 11.5 18.4999 11.5C20.5709 11.5 22.2499 12.9924 22.2499 14.8333Z" stroke="white" stroke-width="1.494" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>                            
-                        <h1 class="text-white text-3xl font-bold pt-3 pb-3">A Vaible Business Plan</h1><span class="text-white text-xl font-normal">We require a clear business plan or Go-to-<br>market strategy that clearly outlines your<br> vision and market potential. </span>
+                        <h1 class="text-white text-3xl font-bold pt-3 pb-3">A Vaible Business Plan</h1><span class="text-white text-xl font-normal">We require a clear business plan or Go-to-market strategy that clearly outlines your vision and market potential. </span>
                         <div class="absolute right-0 bottom-0">
                             <div class="h-16 w-16 bg-Shapecolor transform -rotate-45 origin-top-right rounded-full"></div>
                           </div>
@@ -585,7 +618,7 @@
                             <rect width="36" height="37" rx="18" fill="#333647"/>
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M27.9804 25.7171C27.9911 25.7696 27.9975 25.8226 27.9994 25.8762L28 25.9102V26.9402C28 28.0778 25.9853 29 23.5 29C21.0396 29 19.0403 28.0961 19.0006 26.9742L19 26.9402V25.9102L19.0006 25.8762C19.0025 25.8228 19.0088 25.7698 19.0195 25.7174C19.2951 25.9308 19.6306 26.1275 20.0194 26.296C20.9268 26.6891 22.1504 26.9402 23.5 26.9402C24.9031 26.9402 26.1698 26.6684 27.0881 26.2481C27.4314 26.091 27.7301 25.911 27.9804 25.7171ZM17 8L26 13.1496L26.0001 16.9501C25.2629 16.7552 24.4101 16.641 23.5 16.641C22.1294 16.641 20.8889 16.9005 19.9737 17.3194C18.7206 17.893 18.0826 18.7703 18.002 19.658L17.9997 19.6849L18.0054 28.023L17 28.5983L8 23.4487V13.1496L17 8ZM27.9804 22.6274C27.9911 22.6798 27.9975 22.7329 27.9994 22.7864L28 22.8205V23.8504C28 24.988 25.9853 25.9102 23.5 25.9102C21.0396 25.9102 19.0403 25.0064 19.0006 23.8845L19 23.8504V22.8205L19.0006 22.7864C19.0025 22.733 19.0088 22.6801 19.0195 22.6277C19.2951 22.841 19.6306 23.0378 20.0194 23.2062C20.9268 23.5994 22.1504 23.8504 23.5 23.8504C24.9031 23.8504 26.1698 23.5787 27.0881 23.1583C27.4314 23.0012 27.7301 22.8213 27.9804 22.6274ZM14 17.6124L14 24.5932L16 25.7376V18.7567L14 17.6124ZM10 15.3238V22.3044L12 23.4488V16.4681L10 15.3238ZM23.5 17.6709C25.9604 17.6709 27.9597 18.5748 27.9994 19.6967L28 19.7308V20.7607C28 21.8983 25.9853 22.8205 23.5 22.8205C21.0396 22.8205 19.0403 21.9166 19.0006 20.7947L19 20.7607V19.7308L19.0067 19.6177C19.1348 18.5327 21.0976 17.6709 23.5 17.6709ZM20.9371 12.5414L15.0506 15.925L17 17.0404L22.9 13.6645L20.9371 12.5414ZM17 10.2887L11.1 13.6645L13.0529 14.782L18.9394 11.3984L17 10.2887Z" fill="white"/>
                             </svg>
-                            <h1 class="text-white text-3xl font-bold pt-3 pb-3">Pitch it like a Pro</h1><span class="text-white text-xl font-normal">A pitch deck at minimum. If we like it, most<br> likely investors will too. </span>
+                            <h1 class="text-white text-3xl font-bold pt-3 pb-3">Pitch it like a Pro</h1><span class="text-white text-xl font-normal">A pitch deck at minimum. If we like it, most likely investors will too. </span>
                             <div class="absolute right-0 bottom-0">
                                 <div class="h-16 w-16 bg-Shapecolor transform -rotate-45 origin-top-right rounded-full"></div>
                               </div>
@@ -596,7 +629,7 @@
                                     <rect x="0.333374" y="0.5" width="36" height="36" rx="18" fill="#333647"/>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M27.1569 21.7306C26.4416 22.2353 25.191 22.9447 23.5746 23.3823C23.3781 22.3141 22.6087 21.4306 21.5322 21.1C20.5769 20.8059 19.604 20.5965 18.6204 20.4576C19.3698 19.8247 19.8875 18.9388 20.0369 17.9247C20.2651 17.9165 20.504 17.9118 20.7769 17.9118C22.5063 17.9212 24.2263 18.1859 25.891 18.6976C26.6475 18.9306 27.1569 19.6118 27.1569 20.3941V21.7306ZM22.451 25.26C21.2616 26.1012 19.011 27.3235 15.9804 27.3235C14.6322 27.3235 12.031 27.0506 9.50984 25.26V23.9188C9.50984 23.1376 10.0204 22.4553 10.7781 22.2224C12.4698 21.7047 14.2193 21.4424 15.9804 21.4424H16.0687C17.804 21.4506 19.5251 21.7141 21.1875 22.2247C21.9428 22.4565 22.451 23.1376 22.451 23.9188V25.26H22.451ZM13.0392 17.3235V16.1471C13.0392 14.5259 14.3581 13.2059 15.9804 13.2059C17.6028 13.2059 18.9216 14.5259 18.9216 16.1471V17.3235C18.9216 18.9459 17.6028 20.2647 15.9804 20.2647C14.3581 20.2647 13.0393 18.9459 13.0393 17.3235H13.0392ZM20.6863 9.67648C21.4699 9.67648 22.2087 9.98354 22.7651 10.54C23.3204 11.0965 23.6275 11.8341 23.6275 12.6177V13.7941C23.6275 15.4165 22.3087 16.7353 20.6863 16.7353C20.4816 16.7353 20.2863 16.7082 20.0981 16.6682V16.1471C20.0981 14.5177 19.1393 13.1188 17.7628 12.4518C17.8498 10.9094 19.1216 9.67648 20.6863 9.67648ZM26.2369 17.5729C25.2851 17.2812 24.3146 17.0706 23.3228 16.9306C24.2204 16.1753 24.804 15.0576 24.804 13.7941V12.6176C24.804 11.52 24.3757 10.4859 23.5969 9.70823C22.8181 8.92941 21.7851 8.5 20.6863 8.5C18.5957 8.5 16.8828 10.0729 16.6216 12.0953C16.411 12.0612 16.2004 12.0294 15.9804 12.0294C13.7098 12.0294 11.8628 13.8776 11.8628 16.147V17.3235C11.8628 18.587 12.4463 19.7047 13.3451 20.4612C12.3628 20.5988 11.3851 20.8059 10.4334 21.0976C9.17808 21.4835 8.33337 22.6176 8.33337 23.9188V25.8529L8.56867 26.0294C11.4357 28.1788 14.4416 28.5 15.9804 28.5C19.5663 28.5 22.164 26.9518 23.3922 26.0294L23.6275 25.853V24.5976C25.7651 24.0706 27.3322 23.0765 28.0981 22.5L28.3334 22.3235V20.3941C28.3334 19.0918 27.4898 17.9576 26.2369 17.5729Z" fill="white" stroke="white" stroke-width="0.0192"/>
                                     </svg>                                    
-                                <h1 class="text-white text-3xl font-bold pt-3 pb-3">Understand your Product</h1><span class="text-white text-xl font-normal">Have a clear understanding of the<br> problem you are solving … and your<br> competition. </span>
+                                <h1 class="text-white text-3xl font-bold pt-3 pb-3">Understand your Product</h1><span class="text-white text-xl font-normal">Have a clear understanding of the problem you are solving … and your competition. </span>
                                 <div class="absolute right-0 bottom-0">
                                     <div class="h-16 w-16 bg-Shapecolor transform -rotate-45 origin-top-right rounded-full"></div>
                                   </div>
@@ -607,7 +640,7 @@
                                         <rect x="0.666626" y="0.5" width="36" height="37" rx="18" fill="#333647"/>
                                         <path d="M10.9999 26.5V24.4167C10.9999 21.8853 13.3084 19.8333 16.1561 19.8333H20.8436C23.6914 19.8333 25.9999 21.8853 25.9999 24.4167V26.5M14.7499 26.5V24M22.2499 26.5V24M17.5624 16.5H14.2811C13.5045 16.5 12.8749 15.9404 12.8749 15.25V14.4167C12.8749 13.306 13.418 12.3082 14.2811 11.6215M24.1249 15.6667V14.4167C24.1249 13.306 23.5817 12.3082 22.7186 11.6215M25.9999 15.25V14M10.9999 15.25V14M22.2499 14.8333C22.2499 16.6743 20.5709 18.1667 18.4999 18.1667C16.4288 18.1667 14.7499 16.6743 14.7499 14.8333C14.7499 12.9924 16.4288 11.5 18.4999 11.5C20.5709 11.5 22.2499 12.9924 22.2499 14.8333Z" stroke="white" stroke-width="1.494" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>                                        
-                                    <h1 class="text-white text-3xl font-bold pt-3 pb-3">Who Are You?</h1><span class="text-white text-xl font-normal">Technology-based founders who need some<br> help getting their business off the ground love<br> us. You are either</span>
+                                    <h1 class="text-white text-3xl font-bold pt-3 pb-3">Who Are You?</h1><span class="text-white text-xl font-normal">Technology-based founders who need some help getting their business off the ground love us. You are either</span>
                                     <div class="absolute right-0 bottom-0">
                                         <div class="h-16 w-16 bg-Shapecolor transform -rotate-45 origin-top-right rounded-full"></div>
                                       </div>
@@ -704,12 +737,16 @@
             </div>
         </div>
 
-            <div class="bg-black font-bold mt-8 rounded-3xl text-white py-4 md:py-6">
-                 <h1 class="px-1.5 md:px-6 lg:px-12 text-xl">Got other questions?</h1>
-                 <span class="flex items-center justify-between px-1.5 md:px-6 lg:px-12">
-                     <p class="text-gray-100 font-normal pt-4">Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
-                     <button class="text-white bg-customGreen px-1.5 md:px-2 lg:px-6 md:py-1 lg:py-3 rounded-lg mb-4 hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">Get Started</button>
-                </span>
+            <div class="flex flex-col md:items-center justify-center bg-black font-bold px-5 mt-8 rounded-3xl text-white py-4 md:py-6">
+                 <h1 class="pl-1.5 md:pl-6 md:px-6 lg:px-6 text-xl">Got other questions?</h1>
+                 <p class="pl-1.5 md:pl-6 md:px-6 lg:px-6 text-gray-100 font-normal pt-4">Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
+                 <div class="flex flex-col md:flex-row  items-center justify-between px-1.5 md:px-6 lg:px-6"> 
+                    <div class="flex flex-col items-center justify-center md:justify-end">
+                        <div class="flex flex-col md:flex-row items-center justify-center">
+                            <button class="text-white bg-customGreen px-3 lg:px-6 py-3 md:py-2 lg:py-3 rounded-lg my-4 hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition ease-in-out duration-300">Get Started</button>
+                        </div>
+                    </div>
+                </div>
             </div>
     </div>
     
@@ -741,4 +778,4 @@
         </div>
     </div>
 </body>
-</html> 
+</html>
