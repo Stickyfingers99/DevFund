@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        .text-customGreen {
+          color: #89A54D
+        }
+        .bg-customGreen {
+          background-color: #89A54D
+        }
+        .bg-Shapecolor {
+            background: #89A54DCC;
+        }
+        .bg-customGray {
+            background-color: #22242F;
+        }
+        .rounded-6xl {
+            border-radius: 3rem; 
+        }
+        .custom-shadow {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .custom-hover-shadow:hover {
+          box-shadow: 0 6px 12px rgba(73, 73, 73, 0.08), 0 -6px 12px rgba(73, 73, 73, 0.08), 0 6px 12px rgba(73, 73, 73, 0.08), 0 -6px 12px rgba(73, 73, 73, 0.08);
+          transform-origin: center;
+        }
+        .translate-x-0 {
+        transform: translateX(0);
+        }
+        .translate-x-full {
+        transform: translateX(100%);
+        }
+        .text-opacity-custom {
+            color: rgba(16, 16, 16, 0.5);
+        }
+        body {
+            font-family: 'Sofia Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+    <div class="bg-black text-gray-500">
+        About Us 
+    </div>
+    <header class="flex p-1.5 md:p-2.5">
+        <h1 class="pr-14 md:pr-0 pl-2 lg:pl-32  text-black text-3xl"><span class="text-customGreen text-4xl">Dev</span>Fund</h1>
+        
+            <div class="md:hidden scroll-mr-28 md:scroll-mr-0 flex-1 flex justify-center items-center mb-0 md:mb-0">
+                <button class=" bg-customGreen text-white p-1 rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">
+                    Have an idea?
+                </button>
+            </div>
+
+        <nav class="flex items-center justify-center flex-1">
+            <ul class="hidden md:flex items-center mix-blend-normal md:space-x-8">
+                <li><a href="index.html" class="pl-20 hover:underline hover:text-purple-800">Home</a></li>
+                <li><a href="about.html" class="text-customGreen hover:underline hover:text-purple-800">About Us</a></li>
+                <li><a href="#" class="hover:underline hover:text-purple-800">Services</a></li>
+                <li><a href="GetInTouch.html" class="rounded-md hover:underline hover:text-purple-800">Get In Touch</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hidden md:block mr-2 lg:mr-32 bg-customGreen text-white p-2 rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300"> 
+            <button>Have an idea?</button>
+        </div>
+
+        <div class="flex md:hidden items-center space-x-2">
+            <button id="nav-toggle" class="px-3 py-2 border rounded text-black border-gray-400 hover:text-customGreen hover:border-customGreen">
+                <svg id="menu-icon" class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Menu</title>
+                    <path d="M0 3h20v2H0V3zm0 5h20v2H0V8zm0 5h20v2H0v-2z"/>
+                </svg>
+                <svg id="close-icon" class="hidden fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <title>Close</title>
+                    <path d="M10 8.586l4.95-4.95 1.414 1.414L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.414L8.586 10 3.636 5.05 5.05 3.636 10 8.586z"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+    
+    <nav class="md:hidden fixed right-0 top-0 h-full bg-white shadow-lg p-4 z-50 transform translate-x-full transition-transform duration-300 ease-in-out" id="nav-content">
+        <!-- Close icon inside the nav-content for the overlay -->
+        <button id="nav-close" class="absolute top-0 right-0 text-white bg-customGreen p-2 rounded-full shadow-lg">
+            <svg class="fill-current h-4 w-4 " viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <title>Close</title>
+                <path d="M10 8.586l4.95-4.95 1.414 1.414L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.414L8.586 10 3.636 5.05 5.05 3.636 10 8.586z"/>
+            </svg>
+        </button>
+
+        <ul class="flex flex-col items-center space-y-4 mt-2">
+            <li><a href="index.html" class=" hover:underline hover:text-purple-800">Home</a></li>
+            <li><a href="about.html" class=" text-customGreen hover:underline hover:text-purple-800">About Us</a></li>
+            <li><a href="#" class="hover:underline hover:text-purple-800">Services</a></li>
+            <li><a href="GetInTouch.html" class="hover:underline hover:text-purple-800">Get In Touch</a></li>
+        </ul>
+    </nav>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var navToggle = document.getElementById('nav-toggle');
+          var navContent = document.getElementById('nav-content');
+          var menuIcon = document.getElementById('menu-icon');
+          var closeIcon = document.getElementById('close-icon');
+          var navClose = document.getElementById('nav-close');
+
+         
+          navToggle.addEventListener('click', function() {
+              if (navContent.classList.contains('translate-x-full')) {
+                  navContent.classList.remove('translate-x-full');
+                  navContent.classList.add('translate-x-0');
+                  menuIcon.classList.add('hidden');
+                  closeIcon.classList.remove('hidden');
+              } else {
+                  navContent.classList.remove('translate-x-0');
+                  navContent.classList.add('translate-x-full');
+                  menuIcon.classList.remove('hidden');
+                  closeIcon.classList.add('hidden');
+              }
+          });
+
+         
+          navClose.addEventListener('click', function() {
+              navContent.classList.remove('translate-x-0');
+              navContent.classList.add('translate-x-full');
+              menuIcon.classList.remove('hidden');
+              closeIcon.classList.add('hidden');
+          });
+      });
+    </script><hr>
+
+    <div class="flex flex-col items-center justify-center pb-20">
+        <h1 class="pt-16 flex flex-col items-center justify-center text-5xl md:text-7xl font-bold">What Our Equity<br><span class="pt-6">Partnership<span class="text-customGreen">  Offers</span></span></h1>
+        <p class="pt-10 text-xl pl-2">Our equity partnership is designed to propel development capabilities, provide exhaustive<br><span class="flex items-center justify-center">technical direction and attract investors to you solutions.</span> </p>
+        <button class="bg-customGreen px-16 py-2 text-white rounded-md hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">Get Started</button>
+    </div>
+
+    <div class="bg-gray-100 flex items-center justify-center">
+        <div class="py-20 md:grid grid-cols-2 grid-rows-2 gap-4 ">
+            <div class="bg-white text-black pt-10 pb-8 mx-3 mb-4 pl-6 md:pl-20 pr-6 md:pr-6 rounded-lg ">
+                <img src="/public/images/Rectangle A.jpg" alt="zzz">
+                <h1 class="text-black text-5xl font-bold pt-8">Development Excellence</h1>
+                <p class="text-xl pt-6 text-opacity-custom">our team of skilled developers and tech experts will work tirelessly to turn your<br> concepts into reality. </p>
+            </div>
+            <div class="bg-white text-black pt-10 pb-8 mx-3 mb-4 pl-6 md:pl-16 pr-6 md:pr-6  rounded-lg">
+                <img src="/public/images/Rectangle  B.jpg" alt="zzz">
+                <h1 class="text-black text-5xl font-bold pt-8">MVP or Full solution</h1>
+                <p class="text-xl pt-6 text-opacity-custom">whether you need a Minimum Viable Product (MVP) to test product-market fit<br> or a full-fledged, market-ready solution, we’ve got the team that can get the job<br> done. </p>
+            </div>
+            <div class="bg-white text-black pt-10 pb-8 mx-3 mb-4 pl-6 md:pl-20 pr-6 md:pr-6   rounded-lg">
+                <img src="/public/images/Rectangle C.jpg" alt="zzz">
+                <h1 class="text-black text-5xl font-bold pt-8">Tactical Alliance</h1>
+                <p class="text-xl pt-6 text-opacity-custom">we believe in shared success. By partnering with us, you are several steps closer<br> to achieving it. </p>
+            </div>
+            <div class="bg-white text-black pt-10 pb-8  mx-3 mb-4 pl-6 md:pl-16 pr-6 md:pr-6 rounded-lg">
+                <img src="/public/images/Rectangle D.jpg" alt="zzz">
+                <h1 class="text-black text-5xl font-bold pt-8">Investor Attraction</h1>
+                <p class="text-xl pt-6 text-opacity-custom">become an irresistible proposition to investors with our support and strategic<br> guidance.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="flex flex-col items-center justify-center bg-black pb-20">
+        <h1 class="pt-20 text-white text-4xl md:text-7xl font-bold text-center">Building you the best <br> <span class="pt-4">team,<span class="text-customGreen"> one talent at a time</span></span></h1>
+        <p class="md:hidden pb-6 md:pb-16 text-xl font-thin text-white pt-8 text-center">In the fast-paced world of startups, having the right set of hands on your team is the first win you need. DevFund will bring you the workforce with the expertise and resilience needed to go the distance with you.</p>
+        <p class="hidden md:block pb-6 md:pb-16 text-xl font-thin text-white pt-8 text-center">In the fast-paced world of startups, having the right set of hands on your<br> team is the first win you need. DevFund will bring you the workforce with<br> the expertise and resilience needed to go the distance with you.</p>
+    </div>
+                <div class="md:grid grid-cols-2 grid-rows-2 md:gap-4 bg-black pb-20">
+                    <div class="bg-white text-black rounded-lg p-0 md:p-4 mx-3 md:mx-0 md:ml-5 mb-4 flex flex-col items-center justify-center">
+                        <button class="font-bold text-white bg-customGreen rounded-lg mt-4 p-2 ">0 1</button>
+                        <h2 class="text-2xl font-bold pt-4">Precise Positioning</h2>
+                        <p class="md:text-xl pl-4 pb-4 pt-4">we start by identifying your startup’s unique needs and goals. Whether you are in the early stage or scaling rapidly, we work closely with you to define the roles, skills, and qualities you’re seeking in potential team members.</p>
+                    </div>
+                    <div class="bg-white text-black rounded-lg p-4 mx-3 md:mx-0 md:mr-5 mb-4 flex flex-col items-center justify-center">
+                        <button class="font-bold text-white bg-customGreen rounded-lg p-2">0 2</button>
+                        <h2 class="text-2xl pt-4 font-bold">Globalized Talents</h2>
+                        <p class="md:text-xl pt-4">access a pool of geographically versatile and adaptable specialists. We source for the tech talents who can deliver your projects on the clock regardless of your location.</p>
+                    </div>
+
+                    <div class="bg-white text-black rounded-lg p-4 mx-3 md:mx-0 md:ml-5 mb-4 flex flex-col items-center justify-center">
+                        <button class="font-bold text-white bg-customGreen rounded-lg p-2">0 3</button>
+                        <h2 class="px-8 md:px-0 text-2xl pt-4 font-bold">Efficient Use of Your Resources</h2>
+                        <p class="md:text-xl pt-4">make the most of your resources as we focus on getting you premium talents that have been thoroughly appraised. </p>
+                    </div>
+                    <div class="bg-white text-black rounded-lg p-4 mx-3 md:mx-0 md:mr-5 mb-4 flex flex-col items-center justify-center">
+                        <button class="font-bold text-white bg-customGreen rounded-lg p-2">0 4</button>
+                        <h2 class="text-2xl pt-4 font-bold">Continuous Support</h2>
+                        <p class="md:text-xl pt-4">We provide ongoing support at your request, to you and your team members, ensuring a smooth onboarding process and facilitating seamless integration into your startup’s culture. </p>
+                    </div>
+                </div>
+
+    <div class="px-5 md:px-10 lg:px-20">
+        <h1 class="text-2xl md:text-5xl lg:text-7xl font-bold pt-20 flex items-center justify-center"> Frequently Asked<span class="text-customGreen pl-3"> Questions </span></h1>
+    
+        <div class="pt-10 md:pt-20 text-lg md:grid grid-cols-2 gap-4">
+            <div class="row-span-1 p-4 justify-between items-center cursor-pointer">
+                    <div class="flex justify-between"> 
+                        <p class="font-bold pb-1 pr-4">What is DevFund?</p><br><br>
+                        <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg"  class="transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                            <path d="M7.5 11H15.5M21.5 11C21.5 16.5228 17.0228 21 11.5 21C5.97715 21 1.5 16.5228 1.5 11C1.5 5.47715 5.97715 1 11.5 1C17.0228 1 21.5 5.47715 21.5 11Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="font-normal">DevFund offers technology-based investments to startups whose technology is the<br> business in exchange for a share/equity. This helps innovators and founders of tech startups<br> in building their technology solutions at minimal or even zero expense.<br><br>
+                    <span>In addition to the given solution, this investment encompasses the provision of an Interim<br> CTO (Chief Technology Officer) who provides essential technical direction for the startup.</span></span>
+                </h1>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold justify-between items-center cursor-pointer">
+                <div>
+                    <div class="flex justify-between">
+                        <p class="font-bold pr-4">What are the direct benefits of DevFund?</p><br><br>
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow"">
+                            <path d="M7 11H15M21 11C21 16.5228 16.5228 21 11 21C5.47715 21 1 16.5228 1 11C1 5.47715 5.47715 1 11 1C16.5228 1 21 5.47715 21 11Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="font-normal">DevFund helps your startup by:</span><br><br>
+                    <span class="font-normal">-Securing the technical partnership needed to drive your business’s success.</span><br><br>
+                    <span class="font-normal">-Achieving market dominance by guiding your product evolution for optimal fit and impact.</span><br><br>
+                    <span class="font-normal">-Providing an interim CTO on-demand for as long as you need one.</span>
+                </div>
+            </div>  
+    
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointerr">
+                <p>Does DevFund provide monetary partnership?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointer">
+                <p>Do I Still own my IP?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"  class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointer">
+                <p>Is DevFund an NGO?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointer">
+                <p>How does DevFund make money?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointer">
+                <p>Would DevFund charge me for their services?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointer">
+                <p>Does DevFund help in fundraising rounds?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+    
+            <div class="row-span-1 p-4 font-bold  flex justify-between items-center cursor-pointer">
+                <p>Is there a guarantee that DevFund would build my idea once I make<br> contact by submitting a project?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div class="row-span-1 p-4 font-bold flex justify-between items-center cursor-pointer">
+                <p>Problem with the Skills gap?</p>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="transform hover:scale-125 hover:bg-opacity-50 transition-ease-in-out duration-300 custom-hover-shadow">
+                    <path d="M12.5 8V16M8.5 12H16.5M22.5 12C22.5 17.5228 18.0228 22 12.5 22C6.97715 22 2.5 17.5228 2.5 12C2.5 6.47715 6.97715 2 12.5 2C18.0228 2 22.5 6.47715 22.5 12Z" stroke="#98A2B3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+
+            <div class="flex flex-col md:items-center justify-center bg-black font-bold px-5 mt-8 rounded-3xl text-white py-4 md:py-6">
+                 <h1 class="pl-1.5 md:pl-6 md:px-6 lg:px-6 text-xl">Got other questions?</h1>
+                 <p class="pl-1.5 md:pl-6 md:px-6 lg:px-6 text-gray-100 font-normal pt-4">Can’t find the answer you’re looking for? Please chat to our friendly team.</p>
+                 <div class="flex flex-col md:flex-row  items-center justify-between px-1.5 md:px-6 lg:px-6"> 
+                    <div class="flex flex-col items-center justify-center md:justify-end">
+                        <div class="flex flex-col md:flex-row items-center justify-center">
+                            <button onclick="navigateToPage()" class="text-white bg-customGreen px-3 lg:px-6 py-3 md:py-2 lg:py-3 rounded-lg my-4 hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition ease-in-out duration-300">Get In Touch</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+       
+    <div class="mb-2 bg-black mt-20 py-40 flex flex-col items-center justify-center">
+            <h1 class="text-5xl bg-white text-customGreen">Dev<span class="text-black">Fund</span></h1><br>
+            <p class=" text-xs md:text-xl pt-3 pb-10 text-white ">
+            Lorem ipsum dolor sit amet, consectetur adip elit.<br>
+            Posuere dolor massa, pellentesque aliquam nisl facilisis sed.</p>
+        <div class="items-center">
+                <svg width="1120" height="2" viewBox="0 0 1120 2" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                    <line x1="4.37114e-08" y1="0.712891" x2="1120" y2="0.712989" stroke="white" stroke-opacity="0.31"/>
+                </svg> 
+        </div>
+            
+        <div class="flex items-center justify-center pt-8"> 
+                <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-4 hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">
+                    <rect y="0.212891" width="48" height="48" rx="24" fill="white"/>
+                    <path d="M24 16.5737C19.781 16.5737 16.3611 19.9937 16.3611 24.2126C16.3611 28.0252 19.1546 31.1854 22.8068 31.7591V26.4203H20.8665V24.2126H22.8068V22.5298C22.8068 20.6155 23.9465 19.5582 25.692 19.5582C26.5277 19.5582 27.4016 19.7072 27.4016 19.7072V21.5864H26.4391C25.4896 21.5864 25.1939 22.1753 25.1939 22.7796V24.2126H27.3122L26.9738 26.4203H25.1939V31.7591C28.8453 31.1862 31.6389 28.0244 31.6389 24.2126C31.6389 19.9937 28.2189 16.5737 24 16.5737Z" fill="#6A8336"/>
+                </svg>
+                <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg" class="cursor-pointer hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">
+                    <rect y="0.212891" width="48" height="48" rx="24" fill="white"/>
+                    <path d="M24 16.5737C26.0755 16.5737 26.3344 16.5814 27.1487 16.6196C27.9623 16.6578 28.5161 16.7853 29.0034 16.9748C29.5076 17.1688 29.9323 17.4316 30.3571 17.8555C30.7455 18.2374 31.0461 18.6993 31.2378 19.2091C31.4265 19.6957 31.5548 20.2503 31.593 21.0639C31.6289 21.8782 31.6389 22.1371 31.6389 24.2126C31.6389 26.2881 31.6312 26.5471 31.593 27.3614C31.5548 28.1749 31.4265 28.7287 31.2378 29.2161C31.0466 29.7262 30.746 30.1882 30.3571 30.5697C29.9751 30.958 29.5132 31.2585 29.0034 31.4505C28.5168 31.6391 27.9623 31.7675 27.1487 31.8057C26.3344 31.8416 26.0755 31.8515 24 31.8515C21.9245 31.8515 21.6655 31.8439 20.8512 31.8057C20.0377 31.7675 19.4839 31.6391 18.9965 31.4505C18.4865 31.2591 18.0245 30.9585 17.6429 30.5697C17.2544 30.1879 16.9538 29.726 16.7621 29.2161C16.5727 28.7295 16.4451 28.1749 16.4069 27.3614C16.371 26.5471 16.3611 26.2881 16.3611 24.2126C16.3611 22.1371 16.3687 21.8782 16.4069 21.0639C16.4451 20.2496 16.5727 19.6965 16.7621 19.2091C16.9533 18.699 17.2539 18.237 17.6429 17.8555C18.0246 17.4669 18.4866 17.1663 18.9965 16.9748C19.4839 16.7853 20.0369 16.6578 20.8512 16.6196C21.6655 16.5837 21.9245 16.5737 24 16.5737ZM24 20.3932C22.987 20.3932 22.0155 20.7956 21.2992 21.5119C20.5829 22.2281 20.1805 23.1996 20.1805 24.2126C20.1805 25.2256 20.5829 26.1971 21.2992 26.9134C22.0155 27.6297 22.987 28.0321 24 28.0321C25.013 28.0321 25.9844 27.6297 26.7007 26.9134C27.417 26.1971 27.8194 25.2256 27.8194 24.2126C27.8194 23.1996 27.417 22.2281 26.7007 21.5119C25.9844 20.7956 25.013 20.3932 24 20.3932ZM28.9653 20.2022C28.9653 19.949 28.8647 19.7061 28.6856 19.527C28.5065 19.3479 28.2636 19.2473 28.0104 19.2473C27.7571 19.2473 27.5143 19.3479 27.3352 19.527C27.1561 19.7061 27.0555 19.949 27.0555 20.2022C27.0555 20.4554 27.1561 20.6983 27.3352 20.8774C27.5143 21.0565 27.7571 21.1571 28.0104 21.1571C28.2636 21.1571 28.5065 21.0565 28.6856 20.8774C28.8647 20.6983 28.9653 20.4554 28.9653 20.2022ZM24 21.921C24.6078 21.921 25.1907 22.1624 25.6204 22.5922C26.0502 23.0219 26.2916 23.6048 26.2916 24.2126C26.2916 24.8204 26.0502 25.4033 25.6204 25.8331C25.1907 26.2628 24.6078 26.5043 24 26.5043C23.3922 26.5043 22.8093 26.2628 22.3795 25.8331C21.9497 25.4033 21.7083 24.8204 21.7083 24.2126C21.7083 23.6048 21.9497 23.0219 22.3795 22.5922C22.8093 22.1624 23.3922 21.921 24 21.921Z" fill="#6A8336"/>
+                </svg>
+                <svg width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg" class="ml-4 cursor-pointer hover:shadow-lg transform hover:scale-75 hover:bg-opacity-50 transition-ease-in-out duration-300">
+                    <rect y="0.212891" width="48" height="48" rx="24" fill="white"/>
+                    <path d="M31.7626 19.3667C31.1794 19.6246 30.561 19.7941 29.9277 19.8693C30.5952 19.4701 31.0947 18.8419 31.3333 18.1017C30.7069 18.4745 30.0202 18.7357 29.3044 18.877C28.8236 18.3626 28.1864 18.0214 27.4917 17.9066C26.797 17.7917 26.0838 17.9096 25.463 18.2418C24.8422 18.5741 24.3486 19.1021 24.0589 19.7439C23.7692 20.3856 23.6996 21.1051 23.8609 21.7905C22.5907 21.7268 21.348 21.3967 20.2136 20.8216C19.0792 20.2465 18.0784 19.4393 17.2762 18.4523C16.9923 18.94 16.8431 19.4944 16.8439 20.0588C16.8439 21.1664 17.4076 22.1449 18.2647 22.7179C17.7575 22.7019 17.2614 22.5649 16.8179 22.3183V22.3581C16.818 23.0958 17.0733 23.8107 17.5404 24.3817C18.0075 24.9526 18.6577 25.3445 19.3807 25.4908C18.9099 25.6184 18.4162 25.6372 17.937 25.5458C18.1408 26.1807 18.5382 26.7361 19.0733 27.134C19.6085 27.5319 20.2547 27.7525 20.9215 27.7649C20.2588 28.2853 19.5 28.6701 18.6886 28.8971C17.8771 29.1241 17.0288 29.189 16.1923 29.0879C17.6526 30.0271 19.3525 30.5257 21.0888 30.524C26.9654 30.524 30.1791 25.6558 30.1791 21.4338C30.1791 21.2963 30.1752 21.1572 30.1691 21.0213C30.7947 20.5692 31.3345 20.0091 31.7634 19.3674L31.7626 19.3667Z" fill="#6A8336"/>
+                </svg>   
+        </div>
+    </div>
+    <script>
+        function navigateToPage() {
+    window.location.href = 'GetInTouch.html';
+}
+    </script>
+</body>
+</html>
