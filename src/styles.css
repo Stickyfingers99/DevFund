@@ -4,15 +4,15 @@
 
 @tailwind base;
 @tailwind components;
-@tailwind utilities;'
+@tailwind utilities;
 
 .custom-bg {
-    background-color: #89A54D; /* Using a custom color defined in Tailwind config */
-  }
-  /* Custom Styles */
+  background-color: #89a54d; /* Using a custom color defined in Tailwind config */
+}
+/* Custom Styles */
 .text-customGreen {
-  color: #89A54D;
+  color: #89a54d;
 }
 .bg-customGreen {
-  background-color: #89A54D;
+  background-color: #89a54d;
 }
